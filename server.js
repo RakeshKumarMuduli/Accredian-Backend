@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 app.post('/refferAccount', (req, res) => {
     const { referrerName, referrerEmail, refereeName, refereeEmail } = req.body;
-    pool.query(
+    db.query(
       "INSERT INTO reffer (ReferrerName, ReferrerEmail, RefereeName, RefereeEmail) VALUES (?,?,?,?)",
       [referrerName, referrerEmail, refereeName, refereeEmail],
       (error, results) => {
@@ -49,7 +49,7 @@ app.post('/refferAccount', (req, res) => {
   });
   
   app.get('/Alluser',async(req,res)=>{
-      const data=await pool.query("select * from reffer",(error, results) => {
+      const data=await db.query("select * from reffer",(error, results) => {
           if (error) {
             console.error('Error querying database:', error);
             return;
