@@ -5,11 +5,11 @@ const cors = require('cors');
 
 
 const db = mysql.createPool({
-    connectionLimit: process.env.MYSQL_CONNECTION_LIMIT || 10, // Adjust as needed
-    host: process.env.MYSQL_HOST || 'localhost',
-    user: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || 'Rakesh@424',
-    database: process.env.MYSQL_DATABASE || 'weldx',
+    connectionLimit: process.env.MYSQL_CONNECTION_LIMIT, // Adjust as needed
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
     authPlugins: {
       mysql_native_password: process.env.MYSQL_AUTH_PLUGIN || 'mysql_native_password'
     }
